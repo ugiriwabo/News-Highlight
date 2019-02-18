@@ -7,47 +7,32 @@
         {% else %}
         <title> Welcome to the best news Review website </title>
         {% endif %}
+        {% extends 'base.html'%}
         {% import 'macros.html' as macro%}
     </head>
+   
     <body>
         <center><u> <h1> News</h1></u></center>
-         <!-- general new  -->
-         <!-- <h3> general news</h3>
-         <ul>
-            {% for general_news in general %}
-                <li>{{ general_news.title}}</li>
-            {% endfor %}
-        </ul> -->
-        <!-- language   -->
-        <!-- <h3> language  </h3>
-            <ul>
-            {% for language in en %}
-                <li>{{ language.title}}</li>
-            {% endfor %}
-        </ul> -->
-        <!-- country new -->
-        <!-- <h3>country</h3>
-            <ul>
-            {% for country in us %}
-                <li>{{ country.title}}</li>
-            {% endfor %}
-        </ul> -->
+          <!-- Content block -->
+        {% block content %}
 
-         <!--general new -->
-         <h3> General News</h3>
-         <ul>
-             {{ macro.displayNewList(general)}}
-         </ul>
+        <h3> General News</h3>
+        <ul>
+            {{ macro.displayNewList(general)}}
+        </ul>
          <!-- language  -->
-         <h3> Language  </h3>
-         <ul>
-             {{ macro.displayNewList(en)}}
-         </ul>
-         <!-- Now showing new -->
-         <h3>Country</h3>
-         <ul>
-             {{ macro.displayNewList(us)}}
-         </ul>
+        <h3> Language  </h3>
+        <ul>
+            {{ macro.displayNewList(en)}}
+        </ul>
+        <!-- Now showing new -->
+        <h3>Country</h3>
+        <ul>
+            {{ macro.displayNewList(us)}}
+        </ul>
+
+        {% endblock%}
+         
     </body>
     </body>
 </html>
