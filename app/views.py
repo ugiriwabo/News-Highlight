@@ -17,9 +17,9 @@ def index():
     technology_news = get_source('technology')
     sports_news = get_source('sports')
     entertainment_news = get_source('entertainment')
-    # science_new = get_source('science')
+    science_new = get_source('science')
     title = 'Home - Welcome to The best news Review Website Online'
-    return render_template('index.html', title = title,general = general_news,business = business_news , technology = technology_news ,sports = sports_news , entertainment = entertainment_news )
+    return render_template('index.html', title = title,general = general_news,business = business_news , technology = technology_news ,sports = sports_news , entertainment = entertainment_news , science = science_new)
 
 @app.route('/new/<int:id>')
 def new(id):
