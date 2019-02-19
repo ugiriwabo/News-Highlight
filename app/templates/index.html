@@ -7,14 +7,44 @@
         {% else %}
         <title> Welcome to the best Movie Review website </title>
         {% endif %}
+        {% extends 'base.html'%}
+        {% import 'macros.html' as macro%}
     </head>
     <body>
+        <!-- Content block -->
+        {% block content %}
+
         <!-- general new section  -->
         <h3> General news </h3>
         <ul>
-            {% for general_news in general %}
-                <li>{{ general_news.id}}</li>
-            {% endfor %}
+            {{ macro.displaySourceList(general)}}
         </ul>
+
+        <!-- <h3> Business news </h3>
+        <ul>
+            {{ macro.displaySourceList(business)}}
+        </ul>
+
+        <h3> Technology news </h3>
+        <ul>
+            {{ macro.displaySourceList(technology)}}
+        </ul>
+
+        <h3> Sports news </h3>
+        <ul>
+            {{ macro.displaySourceList(sports)}}
+        </ul>
+
+        <h3> General Entertainment </h3>
+        <ul>
+            {{ macro.displaySourceList(entertainment)}}
+        </ul>
+
+        <h3> General Science </h3>
+        <ul>
+            {{ macro.displaySourceList(science)}}
+        </ul> -->
+
+        {% endblock%}  
     </body>
 </html>
