@@ -13,13 +13,13 @@ def index():
 
     # Getting general source
     general_news = get_source('general')
-    # business_news = get_source('business')
+    business_news = get_source('business')
     # technology_news = get_source('technology')
     # sports_news = get_source('sports')
     # entertainment_news = get_source('entertainment')
     # science_new = get_source('science')
     title = 'Home - Welcome to The best news Review Website Online'
-    return render_template('index.html', title = title,general = general_news)
+    return render_template('index.html', title = title,general = general_news,business = business_news )
 
 @app.route('/new/<int:id>')
 def new(id):
