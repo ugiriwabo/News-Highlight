@@ -3,19 +3,19 @@
     {% for source in sources_list %}
         <div class="col-md-3 single-source">
             <div class="row">
-                <div class="col-md-4 source-name">
-                    <p>{{source.name}}</p>
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <p>{{source.name}}</p>
+                    </div>
+                
+                    <p> {{source.description}}</p>
+                       
+                    <a href="/new/{{source.id}}">you can see the alticle in the source</a>
                 </div>
-                <div class="col-md-7 source-details">
-                    <p> {{source.description|truncate(150)}}</p>
-                        <br>
-                        <a href="/new/{{source.id}}">you can see the alticle in the source</a>
-                 </div>
             </div>               
         </div>
     {% endfor %}
 {% endmacro %}
-
  
 
             

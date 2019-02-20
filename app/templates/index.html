@@ -17,44 +17,52 @@
         
     </head>
     <body>
+            <div class ="A">
         <!-- Content block -->
 
         {% block content %}
            
             <!-- general new section  -->
-            <div class ="A">
+            
             <h3> <u><strong>General news</strong></u> </h3>
             <ul>
                 <li>{{ macro.displaySourceList(general)}}</li>
             </ul>
-            </div>
-            <hr>
+            
+            <br>
+
             <h3> Business news </h3>
             <ul>
                 {{ macro.displaySourceList(business)}}
             </ul>
+            <br>
 
             <h3> Technology news </h3>
             <ul>
                 {{ macro.displaySourceList(technology)}}
             </ul>
+            <br>
 
             <h3> Sports news </h3>
             <ul>
                 {{ macro.displaySourceList(sports)}}
             </ul>
+            <br>
 
             <h3>  Entertainment news </h3>
             <ul>
                 {{ macro.displaySourceList(entertainment)}}
             </ul>
+            <br>
 
             <h3>  Science news </h3>
             <ul>
                 {{ macro.displaySourceList(science)}}
             </ul>
+            
 
-        {% endblock%}  
+        {% endblock%} 
+    </div> 
         <!-- Content block -->
 
     </body>
