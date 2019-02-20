@@ -4,15 +4,22 @@
         <div class="col-md-3 single-source">
             <div class="row">
                 <div class="col-md-4 source-name">
-                    <a href>{{source.name}}</a>
+                    <p>{{source.name}}</p>
                 </div>
                 <div class="col-md-7 source-details">
-                    <p> {{source.description|truncate(150)}}
+                    <p> {{source.description|truncate(150)}}</p>
                         <br>
-                        <a href="/articles/{{source.id}}">you can see the alticle in the source</a>
-                    </p>  
+                        <a href="/new/{{source.id}}">you can see the alticle in the source</a>
                  </div>
             </div>               
         </div>
     {% endfor %}
 {% endmacro %}
+
+ 
+
+            
+                
+                
+            
+            

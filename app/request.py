@@ -1,14 +1,17 @@
 from app import app
 import urllib.request,json
-from .models import new
+from .models import new 
+from .models import article
 
 Source = new.Source
+Articles = article.Articles
 
 # Getting api key
 api_key = app.config['NEWS_API_KEY']
 
 # Getting the new base url
 base_url = app.config["NEWS_API_BASE_URL"]
+base_url1=app.config["ARTICLE_API_BASE_URL"]
 
 
 
@@ -58,23 +61,47 @@ def process_results(sources_list):
     return sources_results
 
 
-# def get_sources(id):
-#     get_sources_url = base_url.format(id,api_key)
+def get_alticle(source_id):
+    '''
+    Function that gets the json response to our url request
+    '''
+    get_alticle_url = base_url1.format(source_id,api_key)
 
-#     with urllib.request.urlopen(get_sources_url) as url:
-#         get_sources_data = url.read()
-#         get_sources_response = json.loads(get_sources_data)
+    with urllib.request.urlopen(get_alticle_url) as url:
+        get_alticle_data = url.read()
+        get_alticle_response = json.loads(get_alticle_data)
 
-#         news_object = None
+        alticles_results = None
 
-#         if source_details_response:
-#             id = source_details_response.get('id')
-#             name = source_details_response.get('name')
-#             description = source_details_response.get('description')
-#             url = source_details_response.get('url')
-#             category = source_details_response.get('category')
-#             country = source_details_response.get('country')
+        if get_alticle_response['articles']:
+            alticles_results_list = get_alticle_response['articles']
+            alticles_results = process_result(alticles_results_list)
 
-#             news_object = Source(id,name,description,url,category,country)
 
-#     return news_object
+    return alticles_results
+
+def process_result(alticles_list):
+    '''
+    Function  that processes the new alticle and transform them to a list of Objects
+
+    Args:
+        new_list: A list of dictionaries that contain new details
+
+    Returns :
+        new_alticle: A list of new objects
+    '''
+    alticles_results = []
+    for alticle_item in alticles_list:
+        id = alticle_item.get('id')
+        author = alticle_item.get('author')
+        title  = alticle_item.get('title ')
+        description = alticle_item.get('description')
+        url = alticle_item.get('url')
+        urlToImage = alticle_item.get('urlToImage')
+        publishedAt = alticle_item.get('publishedAt')
+        content = alticle_item.get('content') 
+        if urlToImage:
+            news_object = Articles(id,author,title,description,url,urlToImage,publishedAt,content)
+            alticles_results.append(news_object)
+
+    return alticles_results
